@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <button id="bgnBtn" onclick= "boton()">Piedra, Papel o tijeras</button>
+    <script>
+let machineScore=0;
+let playerScore=0;
+function boton (){
+let entrada=prompt("Piedra, Papel o tijeras?");
+let entradaCase= entrada.toLowerCase();
+let playerOption;
+let machineOption;
+let matchResult;
+function player(){
+    return (
+        entradaCase== "piedra"? playerOption=1: 
+        entradaCase== "papel"? playerOption=2 : 
+        entradaCase== "tijeras"? playerOption=3:
+        console.log("Valor no permitido"));
+}
+player();
+function machine(){
+   machineOption = Math.floor(Math.random()*3) + 1; 
+}
+machine();
+function matchPlayer(){
+    
+        if (playerOption==2 && machineOption == 1) {playerScore+=1;
+            matchResult="Ganaste";
+        }
+        else if (playerOption==3 && machineOption == 2) {playerScore+=1;
+            matchResult="Ganaste";
+        }
+        else if (playerOption==1 && machineOption == 3) {playerScore+=1;
+            matchResult="Ganaste";
+        }
+        else if (playerOption==1 && machineOption == 2) {machineScore+=1;
+            matchResult="Perdiste";
+        }
+        else if (playerOption==2 && machineOption == 3) {machineScore+=1;
+        matchResult="Perdiste";
+        }
+        else if (playerOption==3 && machineOption == 1) {machineScore+=1;
+        matchResult="Perdiste";
+        }
+        else{matchResult="Draw"
+        } 
+}
+matchPlayer()
+console.log(machineScore);
+console.log(playerScore);
+console.log(matchResult);
+function restart(){   
+    if (playerScore==5) {playerScore = 0; machineScore=0; alert("Tu ganas");"Perro"};
+    if (machineScore==5) {playerScore= 0; machineScore=0;alert("Tu pierdes");"PeRRO"};  
+}
+restart();
+}
+</script>
+</body>
+</html>
